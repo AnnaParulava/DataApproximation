@@ -50,12 +50,12 @@
 <p style="font-size: 16px; line-height: 1.56;"><a href="https://colab.research.google.com/github/fbeilstein/machine_learning/blob/master/workbook_09_linear_regression.ipynb#scrollTo=JVHnuysdS5fq">You can do it with a demo in Google Co lab.</a>
 </p>
 </br>
-<h2>Quadratic regression<h2>
+<h2>Quadratic regression</h2>
 
 <img src="static/res/kvadrat.png" style="float:right; margin: 0 0 0 50px;">
-<p style="height: 440px; font-size: 16px; margin: 20px 0;line-height: 1.56;">To assess the ability of an investment manager to correctly choose the time of an operation, it is sometimes necessary to use more complex dependencies than just a straight line to approximate dot diagrams. Let us consider a procedure that allows us to construct the corresponding curve, using statistical methods for estimating the parameters a, b, and c in the following quadratic regression equation
-<img src="static/res/form1.png">
-<p>If the estimated value of c is positive, then the slope of the curve decreases when moving from right to left. This means that the portfolio manager has successfully selected the time of the operation. Let us consider how this equation relates to the equation of the a posteriori characteristic line in the case when c is almost zero. In this situation, a and b correspond to the a posteriori" alpha "and" beta " of the portfolio.</p>
+<p style="height: 440px; font-size: 16px; margin: 20px 0;line-height: 1.56;">To assess the ability of an investment manager to correctly choose the time of an operation, it is sometimes necessary to use more complex dependencies than just a straight line to approximate dot diagrams. Let us consider a procedure that allows us to construct the corresponding curve, using statistical methods for estimating the parameters a, b, and c in the following quadratic regression equation</p>
+<img style="margin: 20px 0;" src="static/res/form1.png">
+<p style="font-size: 16px;line-height: 1.56;">If the estimated value of c is positive, then the slope of the curve decreases when moving from right to left. This means that the portfolio manager has successfully selected the time of the operation. Let us consider how this equation relates to the equation of the a posteriori characteristic line in the case when c is almost zero. In this situation, a and b correspond to the a posteriori' alpha 'and' beta ' of the portfolio.</p>
 
 </div>
 
