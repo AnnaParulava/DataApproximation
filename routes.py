@@ -4,6 +4,7 @@ Routes and views for the bottle application.
 
 from bottle import route, view
 from datetime import datetime
+import prim_form
 
 @route('/')
 @route('/home')
@@ -11,6 +12,16 @@ from datetime import datetime
 def home():
     """Renders the home page."""
     return dict(
+        year=datetime.now().year
+    )
+
+@route('/Prim')
+@view('Prim')
+def prim():
+    """Renders the contact page."""
+    return dict(
+        title='Prim',
+        message='Prim`s algorithm',
         year=datetime.now().year
     )
 
