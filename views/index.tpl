@@ -13,9 +13,9 @@
 }
 </style>
 <div class="jumbotron" style="background-color: #aaf0d1; border-radius: 15px;">
-    <h1>Bottle</h1>
-    <p class="lead">Bottle is a free web framework for building great Web sites and Web applications using HTML, CSS and JavaScript.</p>
-    <p><a href="http://bottlepy.org/docs/dev/index.html" class="button">Learn more &raquo;</a></p>
+    <h1>Data fit and least squares</h1>
+    <p class="lead">The method of least squares (OLS, English LS-Least Squares) is a mathematical method used to solve various problems, based on minimizing the sum of the squares of deviations of some functions from the desired variables. It can be used to "solve" redefined systems of equations (when the number of equations exceeds the number of unknowns), to find a solution in the case of ordinary (not redefined) nonlinear systems of equations, to approximate the point values of a certain function. OLS is one of the basic regression analysis methods for estimating unknown parameters of regression models from sample data.</p>
+    <p><a href="https://en.wikipedia.org/wiki/Least_squares" class="button">Learn more</a></p>
 </div>
 
 <div class="row">
@@ -26,7 +26,7 @@
             enables a clean separation of concerns and gives you full control over markup
             for enjoyable, agile development.
         </p>
-        <p><a class="button" style="background-color: #aaf0d1;" href="http://bottlepy.org/docs/dev/index.html">Learn more &raquo;</a></p>
+        <p><a class="button"  href="http://bottlepy.org/docs/dev/index.html">Learn more</a></p>
     </div>
     <div class="col-md-3">
         <h2>Task 2</h2>
@@ -35,16 +35,16 @@
             enables a clean separation of concerns and gives you full control over markup
             for enjoyable, agile development.
         </p>
-        <p><a class="button" style="background-color: #aaf0d1;" href="http://bottlepy.org/docs/dev/index.html">Learn more &raquo;</a></p>
+        <p><a class="button"  href="http://bottlepy.org/docs/dev/index.html">Learn more</a></p>
     </div>
     <div class="col-md-3">
         <h2>Task 3</h2>
         <p>The Python Package Index is a repository of software for the Python programming language.</p>
-        <p><a class="button" style="background-color: #aaf0d1;" href="https://pypi.python.org/pypi">Learn more &raquo;</a></p>
+        <p><a class="button"  href="https://pypi.python.org/pypi">Learn more</a></p>
     </div>
     <div class="col-md-3">
         <h2>Prim</h2>
         <p>You can easily publish to Microsoft Azure using Visual Studio. Find out how you can host your application using a free trial today.</p>
-        <p><a class="button" style="background-color: #aaf0d1;" href="http://azure.microsoft.com">Learn more &raquo;</a></p>
+        <p><a class="button"  href="http://azure.microsoft.com">Learn more</a></p>
     </div>
 </div>
