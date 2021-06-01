@@ -24,24 +24,33 @@ def prim_form():
     for i in range(rows):
         x.append(int(request.forms.get('fieldX' +str(i))))
         y.append(int(request.forms.get('fieldY' + str(i))))
+
     print(x)
     print(y)
 
-    #x = np.array([5, 15, 25, 35, 45, 55])
-    #y = np.array([5, 20, 14, 32, 22, 38])
+    #корреляция
     r, p = scipy.stats.pearsonr(x, y)
     print("corr:", r)
 
+    #детерминация
     x = np.array(x).reshape((-1, 1))
     model = LinearRegression().fit(x, y)
     r_sq = model.score(x, y)
     print('coefficient of determination:', r_sq)
 
+    #вывод ответа
     with open('mas_weight.txt', 'w') as file:
         json.dump(r_sq, file)
     file.close()
-    return json.dumps(r,r_sq)
-#
+    return json.dumps( r)
+
+
+
+
+
+
+
+
 #
 #Ппивет, давно хотел сказать, что ты волчица, а я волк 
 #Ну и того 

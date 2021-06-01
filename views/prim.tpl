@@ -6,27 +6,28 @@
   background-color: #242425;
   border: none;
   color: white;
-  padding: 15px 32px;
+  padding: 5px 25px;
   text-align: center;
   text-decoration: none;
   display: inline-block;
-  font-size: 16px;
+  font-size: 14px;
   border-radius: 16px;
 }
 }
 </style>
 
+<h1 style="margin: 40px 0; padding-top: 40px; text-align: center;">Calculation of correlation and determination coefficients</h1>
+<p style="font-size: 16px; margin-bottom: 20px;">On this page, you can calculate the correlation coefficients for linear and quadratic regression and determination lines. Make a conclusion about which of the lines best approximates the original data.</p>
 <div class="junbotron">
 
 	
-	<div style="background-color: #eee; border-radius: 5px; padding: 20px;"><h3>Specify the amount of source data.</h3>
+	<div style="background-color: #aaf0d1; border-radius: 15px; padding: 20px;"><p style="font-size: 14px;">Specify the amount of source data: </p>
     <form action='/Prim' method='post'>
     %try:
-		<p><input type="Number"  name="num" value={{rows}} placeholder="Number of graph vertices" min=1 max=99></input></p> 
+		<p><input type="Number"  name="num" value={{rows}} placeholder="" min=1 max=99 ></input></p> 
         %except NameError:
-        <p><input type="Number"  name="num" placeholder="Number of graph vertices" min=1 max=99></input></p> 
+        <p><input type="Number"  name="num" placeholder="" min=1 max=99 style="border-radius: 5px;"></input></p> 
         %finally:
-        
         <p> <input type="submit"  class="button button" value="Ok"></p>
     </form>
     
