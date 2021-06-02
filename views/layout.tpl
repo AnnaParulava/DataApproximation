@@ -111,7 +111,7 @@
                     <li><a href="¹">Task 2</a></li>
                     <li><a href="¹">Task 3</a></li>
                      <li><a href="/Prim">Prim</a></li>
-                    <li><a href="/contact">Contact</a></li>
+                    <li><a href="/authors">Authors</a></li>
                 </ul>
             </div>
         </div>

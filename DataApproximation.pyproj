@@ -80,7 +80,7 @@
     <Content Include="views\make_table.tpl" />
     <Content Include="views\prim.tpl" />
     <Content Include="views\about.tpl" />
-    <Content Include="views\contact.tpl" />
+    <Content Include="views\authors.tpl" />
     <Content Include="views\index.tpl" />
     <Content Include="views\layout.tpl" />
   </ItemGroup>

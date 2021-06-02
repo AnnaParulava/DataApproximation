@@ -25,13 +25,13 @@ def prim():
         year=datetime.now().year
     )
 
-@route('/contact')
-@view('contact')
-def contact():
+@route('/authors')
+@view('authors')
+def authors():
     """Renders the contact page."""
     return dict(
-        title='Contact',
-        message='Your contact page.',
+        title='Authors',
+        message='',
         year=datetime.now().year
     )
 
