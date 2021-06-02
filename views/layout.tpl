@@ -10,16 +10,16 @@
 </head>
 <style>
 .preloader {
-  /*фиксированное позиционирование*/
+  /*ГґГЁГЄГ±ГЁГ°Г®ГўГ Г­Г­Г®ГҐ ГЇГ®Г§ГЁГ¶ГЁГ®Г­ГЁГ°Г®ГўГ Г­ГЁГҐ*/
   position: fixed;
-  /* координаты положения */
+  /* ГЄГ®Г®Г°Г¤ГЁГ­Г ГІГ» ГЇГ®Г«Г®Г¦ГҐГ­ГЁГї */
   left: 0;
   top: 0;
   right: 0;
   bottom: 0;
-  /* фоновый цвет элемента */
+  /* ГґГ®Г­Г®ГўГ»Г© Г¶ГўГҐГІ ГЅГ«ГҐГ¬ГҐГ­ГІГ  */
   background: #e0e0e0;
-  /* размещаем блок над всеми элементами на странице (это значение должно быть больше, чем у любого другого позиционированного элемента на странице) */
+  /* Г°Г Г§Г¬ГҐГ№Г ГҐГ¬ ГЎГ«Г®ГЄ Г­Г Г¤ ГўГ±ГҐГ¬ГЁ ГЅГ«ГҐГ¬ГҐГ­ГІГ Г¬ГЁ Г­Г  Г±ГІГ°Г Г­ГЁГ¶ГҐ (ГЅГІГ® Г§Г­Г Г·ГҐГ­ГЁГҐ Г¤Г®Г«Г¦Г­Г® ГЎГ»ГІГј ГЎГ®Г«ГјГёГҐ, Г·ГҐГ¬ Гі Г«ГѕГЎГ®ГЈГ® Г¤Г°ГіГЈГ®ГЈГ® ГЇГ®Г§ГЁГ¶ГЁГ®Г­ГЁГ°Г®ГўГ Г­Г­Г®ГЈГ® ГЅГ«ГҐГ¬ГҐГ­ГІГ  Г­Г  Г±ГІГ°Г Г­ГЁГ¶ГҐ) */
   z-index: 1001;
 }
 
@@ -103,15 +103,15 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a href="/" class="navbar-brand">Application name</a>
+                <a href="/" class="navbar-brand">Team 6</a>
             </div>
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
-                    <li><a href="№">Task 1</a></li>
-                    <li><a href="№">Task 2</a></li>
-                    <li><a href="№">Task 3</a></li>
-                     <li><a href="/prim">Regression</a></li>
-                    <li><a href="/contact">Contact</a></li>
+                    <li><a href="В№">Task 1</a></li>
+                    <li><a href="В№">Task 2</a></li>
+                    <li><a href="В№">Task 3</a></li>
+                     <li><a href="/Prim">Prim</a></li>
+                    <li><a href="/authors">Authors</a></li>
                 </ul>
             </div>
         </div>
