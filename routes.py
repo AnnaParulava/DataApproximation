@@ -15,12 +15,13 @@ def home():
         year=datetime.now().year
     )
 
-@route('/Prim')
-@view('Prim')
+@route('/prim')
+@view('prim')
 def prim():
     """Renders the contact page."""
     return dict(
         title='Prim',
+        answer="",
         message='Prim`s algorithm',
         year=datetime.now().year
     )

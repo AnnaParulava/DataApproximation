@@ -1,4 +1,4 @@
-% rebase('layout.tpl', title='Home Page', year=year)
+% rebase('layout.tpl', title='Regression', year=year, answer=answer)
 
 <style>
    
@@ -22,25 +22,28 @@
 
 	
 	<div style="background-color: #aaf0d1; border-radius: 15px; padding: 20px;"><p style="font-size: 14px;">Specify the amount of source data: </p>
-    <form action='/Prim' method='post'>
+    <form method='post'>
     %try:
 		<p><input type="Number"  name="num" value={{rows}} placeholder="" min=1 max=99 ></input></p> 
         %except NameError:
         <p><input type="Number"  name="num" placeholder="" min=1 max=99 style="border-radius: 5px;"></input></p> 
         %finally:
-        <p> <input type="submit"  class="button button" value="Ok"></p>
+        <p> <input name="subm" type="submit"  class="button button" value="Ok"></p>
     </form>
     
     %try:
-    <form action='/Primm' method='post' style="margin: 60px 0;">
+    <form method='post' style="margin: 60px 0;">
     <p><input type="Number"  name="num" value={{rows}} placeholder="Number of graph vertices" min=1 max=99 hidden></input></p> 
         % include('make_table.tpl', title='make_table', rows=rows)
-    <p> <input type="submit"  class="button button" value="Calculate"></p>
+    <p> <input name="subm" type="submit"  class="button button" value="Calculate"></p>
+        
     </form>
         %except NameError:
     %pass
     %finally:
+    <h2 class="answer">{{answer}}</h2>
     </div>
+
     <h2 style="margin: 90px 0 30px 0;">Linear regression</h2>
     <div style="display: grid; grid-template-columns: 1fr 3fr;"><div><img style="" src="static\res\lin.png" width="300" algin = "left" vspace = "5" hspace = "7"><p style="font-size: 14px; text-align: center;">Simple linear regression</p></div>
     <div style="width: 565px; min-height: 330px; font-size: 16px; margin: 20px 0;line-height: 1.56;"><b>Regression</b>
