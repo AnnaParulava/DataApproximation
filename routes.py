@@ -26,6 +26,17 @@ def prim():
         year=datetime.now().year
     )
 
+@route('/task2')
+@view('task2')
+def task2():
+    """Renders the contact page."""
+    return dict(
+        title='Task 2',
+        answer="",
+        message='Sofya',
+        year=datetime.now().year
+    )
+
 @route('/authors')
 @view('authors')
 def authors():
