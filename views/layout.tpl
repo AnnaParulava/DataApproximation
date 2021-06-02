@@ -95,9 +95,9 @@
     <div class="preloader__item"></div>
   </div>
 </div>
-    <div class="navbar navbar-inverse navbar-fixed-top">
-        <div class="container">
-            <div class="navbar-header">
+    <div class="navbar navbar-inverse navbar-fixed-top" >
+        <div class="container" style="color: #ffffff;">
+            <div class="navbar-header" style="color: white;">
                 <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
@@ -110,7 +110,7 @@
                     <li><a href="¹">Task 1</a></li>
                     <li><a href="¹">Task 2</a></li>
                     <li><a href="¹">Task 3</a></li>
-                     <li><a href="/Prim">Prim</a></li>
+                     <li><a href="/Prim">Regression</a></li>
                     <li><a href="/contact">Contact</a></li>
                 </ul>
             </div>
