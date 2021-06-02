@@ -1,7 +1,7 @@
 % rebase('layout.tpl', title=title, year=year)
 
 <h3>{{ message }}</h3>
-<div class="jumbotron" style="background-color: #aaf0d1; border-radius: 15px; margin-bottom: 88px">
+<div class="jumbotron" style="background-color: #aaf0d1; border-radius: 15px; margin-bottom: 40px">
     <h1>{{ title }}</h1>
     <p class="lead">Kuznetsova Oksana, Nikitina Sofya, Parulava Anna, Soproniuk Maria</p>
 </div>
