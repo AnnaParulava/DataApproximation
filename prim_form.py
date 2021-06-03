@@ -6,9 +6,12 @@ import os
 from datetime import datetime
 import numpy as np
 from sklearn.linear_model import LinearRegression
+from sklearn.preprocessing import PolynomialFeatures
 import matplotlib.pyplot as plt
 import scipy.stats
-
+from sklearn.metrics import mean_squared_error, r2_score
+import scipy.stats
+import statistics
 
 @post('/prim', method='post')
 def prim_form():
@@ -37,50 +40,38 @@ def prim_form():
         print("coefficient of correlation: ", r_lin)
 
         #Вычисление коэффициента детерминации 
-        x = np.array([5, 15, 25, 35, 45, 55]).reshape((-1, 1))
+        x = np.array(x).reshape((-1, 1))
         model = LinearRegression().fit(x, y)
         r2_lin = model.score(x, y)
         print('coefficient of determination:', r2_lin)
 
 
 
-        ###### Квадратичная регрессия ##########
-        x = np.array([5, 15, 25, 35, 45, 55])
-        arr = np.polyfit(x, y, 2)
-        model='('+str(round(arr[0],5))+')x² + ('+str(round(arr[1],5))+')x + ('+str(round(arr[2],5))+')'
-        print(model) 
+        ####### Квадратичная регрессия ##########
+        #x = np.array([5, 15, 25, 35, 45, 55])
+        #arr = np.polyfit(x, y, 2)
+        #model='('+str(round(arr[0],5))+')x² + ('+str(round(arr[1],5))+')x + ('+str(round(arr[2],5))+')'
+        #print(model) 
 
-        #Вычисление коэффициента детерминации 1 способ
-        x = np.array([5, 15, 25, 35, 45, 55])
-        model = np.poly1d(np.polyfit(x, y, 2))
-        print(model)                                             #Вывод уравнения регрессии
-        r2_sq= r2_score(y, model(x))
-        print('coefficient of determination:', r2_sq)            #Вывод коэффициента детерминации
+        ##Вычисление коэффициента детерминации 1 способ
+        #x = np.array([5, 15, 25, 35, 45, 55])
+        #model = np.poly1d(np.polyfit(x, y, 2))
+        #print(model)                                             #Вывод уравнения регрессии
+        #r2_sq= r2_score(y, model(x))
+        #print('coefficient of determination:', r2_sq)            #Вывод коэффициента детерминации
 
-        ##Вычисление коэффициента детерминации 2 способ
-        #x = np.array([5, 15, 25, 35, 45, 55]).reshape((-1, 1))
-        #polynomial_features= PolynomialFeatures(degree=2)
-        #x_poly = polynomial_features.fit_transform(x)
-
-        #model = LinearRegression()
-        #model.fit(x_poly, y)
-        #y_poly_pred = model.predict(x_poly)
-
-        #r2 = r2_score(y,y_poly_pred)
-        #print('coefficient of determination:', r2) 
-
-        #Вычисление коэффициента корреляции
-        r=pow(r2,0.5)
-        print("coefficient of correlation: ",r)
+        ##Вычисление коэффициента корреляции
+        #r=pow(r2,0.5)
+        #print("coefficient of correlation: ",r)
 
         #вывод ответа
-        return template('prim.tpl', title='Regression', year=2021, answer=r_sq)
+        return template('prim.tpl', title='Regression', year=2021, linCorr=r_lin, linDeter=r2_lin)
         #with open('mas_weight.txt', 'w') as file:
         #    json.dump(r_sq, file)
         #file.close()
         #return json.dumps( r)
     else:
-        return template('prim', rows=int(request.forms.get('num')),title='Prim', message='Prim`s algorithm', year=datetime.now().year, answer="")
+        return template('prim', rows=int(request.forms.get('num')),title='Prim', message='Prim`s algorithm', year=datetime.now().year, linCorr="", linDeter="")
 
 
 

@@ -16,7 +16,7 @@ from sklearn.preprocessing import PolynomialFeatures
 import scipy.stats
 import statistics
 
-x = np.array([5, 15, 25, 35, 45, 55])
+x = np.array([5, 15, 25, 35, 45, 5.5])
 y = np.array([5, 20, 14, 32, 22, 38])
 
 
@@ -51,7 +51,7 @@ x = np.array([5, 15, 25, 35, 45, 55])
 model = np.poly1d(np.polyfit(x, y, 2))
 print(model)                                             #Вывод уравнения регрессии
 r2_sq= r2_score(y, model(x))
-print('coefficient of determination:', r2_sq)               #Вывод коэффициента детерминации
+print('coefficient of determination:', r2_sq)            #Вывод коэффициента детерминации
 
 #Вычисление коэффициента детерминации 2 способ
 x = np.array([5, 15, 25, 35, 45, 55]).reshape((-1, 1))

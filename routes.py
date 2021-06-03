@@ -21,7 +21,8 @@ def prim():
     """Renders the contact page."""
     return dict(
         title='Prim',
-        answer="",
+        linCorr="",
+        linDeter="",
         message='Prim`s algorithm',
         year=datetime.now().year
     )
