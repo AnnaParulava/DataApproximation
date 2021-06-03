@@ -79,6 +79,9 @@ Distributed under SUAI License.
 
 ## Contact 
 Oksana Kuznetsova - https://github.com/marrrkuri
-Sofya Nikitina - - 
-Anna Parulava - - 
-Maria Soproniuk - -
+
+Sofya Nikitina - https://github.com/nisonya
+
+Anna Parulava - https://github.com/AnnaParulava
+
+Maria Soproniuk - https://github.com/Mary-cpp
