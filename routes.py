@@ -33,7 +33,7 @@ def task2():
     return dict(
         title='Task 2',
         answer="",
-        message='Sofya',
+        message='',
         year=datetime.now().year
     )
 
