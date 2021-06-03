@@ -39,22 +39,22 @@ In statistics, many results are only approximate; meaning they are similar but n
 ## Tasks
 Here you can find descriptions of exercises.
 
-### Task 1 
+### Linear regression line 
 Using the least squares method, the function y = f (x), given in the table, is approximated by a polynomial of the first degree y = P1 (x) = a0 + a1x. Get the coefficients of the linear regression line a0 and a1, the coefficient of determinism R2.
 
 The first task was solved by Oksana Kuznetsova. You can find the solution for this task on ?? page.
 
-### Task 2
+### Quadratic regression line
 Using the least squares method, the function y = f (x), given in the table, is approximated by a polynomial of the second degree y = P2 (x) = a0 + a1x + a2x2. Get the coefficients of the quadratic regression line a0, a1 and a2, the coefficient of determinism R2.
 
 The second task was solved by Sofya Nikitina. You can find the solution for this task on ?? page.
 
-### Task 3
+### Correlation and determination
 For linear and quadratic regression lines, calculate the correlation and determination coefficients. Make a conclusion about which of the lines better approximates the original data. 
 
 The third task was solved by Anna Parulava. You can find the solution for this task on Regression page.
 
-### Task 4
+### Average level of a given series
 Calculate the average level of the given series. Calculate absolute growth, growth rate and growth rate for all levels and the average values of these indicators. Determine the variability of the indicator and its stability. The calculation results are presented in the form of tables where necessary.
 
 The fourth task was solved by Maria Soproniuk. You can find the solution for this task on ?? page.
@@ -64,7 +64,6 @@ Python 3.7.0
 Bottle 0.12.19
 Html 5.0.0
 Css 3.0.0
-?? 3.0.0
 
 ## Getting Started
 To get started install Visual Studio and start .sln file to use. To interact with the site, run the project on the web server.
@@ -79,7 +78,7 @@ The changes are reflected in the comments.
 Distributed under SUAI License.
 
 ## Contact 
-Oksana Kuznetsova - oksancheek@hotmail.com - https://github.com/marrrkuri
+Oksana Kuznetsova - https://github.com/marrrkuri
 Sofya Nikitina - - 
 Anna Parulava - - 
 Maria Soproniuk - -
