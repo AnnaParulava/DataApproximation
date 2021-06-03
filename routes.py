@@ -21,8 +21,15 @@ def prim():
     """Renders the contact page."""
     return dict(
         title='Prim',
+        LeanerModel='',
         linCorr="",
         linDeter="",
+        QuadraticModel="",
+        QuadraticCorr="", 
+        QuadraticDeter="",
+        row=0,
+        x=[],
+        y=[],
         message='Prim`s algorithm',
         year=datetime.now().year
     )

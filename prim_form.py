@@ -15,66 +15,64 @@ import statistics
 
 @post('/prim', method='post')
 def prim_form():
-    
-    name = request.forms.get('subm')
-    if(name != "Ok"):
-        rows=int(request.forms.get('num'))
-        x=[]
-        y=[]
-        #если ячейка пустая, то 0
-        for i in range(rows):
-            x.append(int(request.forms.get('fieldX' +str(i))))
-            y.append(int(request.forms.get('fieldY' + str(i))))
+    try:
+        name = request.forms.get('subm')
+        if(name != "Ok"):
+            rows=int(request.forms.get('num'))
+            x=[]
+            y=[]
+            for i in range(rows):
+                x.append(float(request.forms.get('fieldX' +str(i))))
+                y.append(float(request.forms.get('fieldY' + str(i))))
 
-        print(x)
-        print(y)
+            print(x)
+            print(y)
 
-       ###### Линейная регрессия ##########
+            ###### Линейная регрессия ##########
 
-        #Вывод уравнения регрессии
-        LeanerModel = np.poly1d(np.polyfit(x, y, 1))
-        print(LeanerModel)
+            #Вывод уравнения регрессии
+            LeanerModel = np.poly1d(np.polyfit(x, y, 1))
+            LeanerModel = 'y = ' + str(LeanerModel)
+            print(LeanerModel)
 
-        #Вычисление коэффициента корреляции
-        r_lin, p = scipy.stats.pearsonr(x, y)
-        print("coefficient of correlation: ", r_lin)
+            #Вычисление коэффициента корреляции
+            r_lin, p = scipy.stats.pearsonr(x, y)
+            print("coefficient of correlation: ", r_lin)
 
-        #Вычисление коэффициента детерминации 
-        x = np.array(x).reshape((-1, 1))
-        model = LinearRegression().fit(x, y)
-        r2_lin = model.score(x, y)
-        print('coefficient of determination:', r2_lin)
+            #Вычисление коэффициента детерминации 
+            x_resh = np.array(x).reshape((-1, 1))
+            model = LinearRegression().fit(x_resh, y)
+            r2_lin = model.score(x_resh, y)
+            print('coefficient of determination:', r2_lin)
 
 
 
-        ####### Квадратичная регрессия ##########
-        #x = np.array([5, 15, 25, 35, 45, 55])
-        #arr = np.polyfit(x, y, 2)
-        #model='('+str(round(arr[0],5))+')x² + ('+str(round(arr[1],5))+')x + ('+str(round(arr[2],5))+')'
-        #print(model) 
+            ###### Квадратичная регрессия ##########
+            arr = np.polyfit(x, y, 2)
+            QuadraticModel='y = ('+str(round(arr[0],5))+')x² + ('+str(round(arr[1],5))+')x + ('+str(round(arr[2],5))+')'
+            print(QuadraticModel) 
 
-        ##Вычисление коэффициента детерминации 1 способ
-        #x = np.array([5, 15, 25, 35, 45, 55])
-        #model = np.poly1d(np.polyfit(x, y, 2))
-        #print(model)                                             #Вывод уравнения регрессии
-        #r2_sq= r2_score(y, model(x))
-        #print('coefficient of determination:', r2_sq)            #Вывод коэффициента детерминации
+            #Вычисление коэффициента детерминации
+            model = np.poly1d(np.polyfit(x, y, 2))
+            print(model)                                             #Вывод уравнения регрессии
+            r2_q= r2_score(y, model(x))
+            print('coefficient of determination:', r2_q)            #Вывод коэффициента детерминации
 
-        ##Вычисление коэффициента корреляции
-        #r=pow(r2,0.5)
-        #print("coefficient of correlation: ",r)
+            #Вычисление коэффициента корреляции
+            r_q=pow(r2_q,0.5)
+            print("coefficient of correlation: ", r_q)
+
+            ша 
 
         #вывод ответа
-        return template('prim.tpl', title='Regression', year=2021, linCorr=r_lin, linDeter=r2_lin)
-        #with open('mas_weight.txt', 'w') as file:
-        #    json.dump(r_sq, file)
-        #file.close()
-        #return json.dumps( r)
-    else:
-        return template('prim', rows=int(request.forms.get('num')),title='Prim', message='Prim`s algorithm', year=datetime.now().year, linCorr="", linDeter="")
+        else:
+             return template('prim.tpl', title='Regression', year=2021, LeanerModel=LeanerModel, linCorr=r_lin, linDeter=r2_lin, QuadraticModel=QuadraticModel, QuadraticCorr=r_q, QuadraticDeter=r2_q, row=rows, x=x,y=y)
+         
+    except Exception:
+        return template('prim', rows=2, title='Prim', message='Prim`s algorithm', year=datetime.now().year, LeanerModel='', linCorr="", linDeter="", QuadraticModel="", QuadraticCorr="", QuadraticDeter="",row=0, x=[],y=[]) 
 
-
-
+    finally:
+        pass
 
 
 

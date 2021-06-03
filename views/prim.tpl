@@ -1,4 +1,4 @@
-% rebase('layout.tpl', title='Regression', year=year, linCorr=linCorr, linDeter=linDeter)
+% rebase('layout.tpl', title='Regression', year=year, LeanerModel=LeanerModel, linCorr=linCorr, linDeter=linDeter, QuadraticModel=QuadraticModel, QuadraticCorr=QuadraticCorr, QuadraticDeter=QuadraticDeter, row=row, x=x,y=y)
 
 <style>
    
@@ -19,29 +19,39 @@
 <h1 style="margin: 40px 0; padding-top: 40px; text-align: center;">Calculation of correlation and determination coefficients</h1>
 <p style="font-size: 16px; margin-bottom: 20px;">On this page, you can calculate the correlation coefficients for linear and quadratic regression and determination lines. Make a conclusion about which of the lines best approximates the original data.</p>
 
-<div class="junbotron">
-	<div style="background-color: #aaf0d1; border-radius: 15px; padding: 20px;"><p style="font-size: 14px;">Specify the amount of source data: </p>
+<div class="junbotron" style="display: grid; grid-template-columns: 3fr 1fr;">
+	<div style="background-color: #aaf0d1; border-radius: 15px; padding: 20px;">
+    <p style="font-size: 14px;">Specify the amount of source data: </p>
     <form method='post'>
     %try:
-		<p><input type="Number"  name="num" value={{rows}} placeholder="" min=1 max=99 ></input></p> 
+		<p><input type="Number"  name="num" value={{rows}} placeholder="" min=2 max=99 ></input></p> 
         %except NameError:
-        <p><input type="Number"  name="num" placeholder="" min=1 max=99 style="border-radius: 5px;"></input></p> 
+        <p><input type="Number"  name="num" placeholder="" min=2 max=99 style="border-radius: 5px;"></input></p> 
         %finally:
         <p> <input name="subm" type="submit"  class="button button" value="Ok"></p>
     </form>
     
     %try:
     <form method='post' style="margin: 60px 0;">
-   <p><input type="Number"  name="num" value={{rows}} placeholder="" min=1 max=99 hidden></\input></p> 
+   <p><input type="Number" step="0.01" name="num" value={{rows}} placeholder="" min=1.0 max=1000.0 hidden></input></p> 
         % include('make_table.tpl', title='make_table', rows=rows)
-    <p> <input name="subm" type="submit"  class="button button" value="Calculate"></p>
-    <h2 class="linCorr">{{linCorr}}</h2>   
-    </form>
+    <p> <input name="subm" type="submit"  class="button button" value="Calculate"></p>  
+    </form>      
     %except NameError:
     %pass
     %finally:
+    % include('fill_table.tpl', title='fill_table',row=row, x=x,y=y)
+    <h2>Linear regression</h2>
+    <h2 class="LeanerModel">{{LeanerModel}}</h2>  
     <h2 class="linCorr">Coefficient of correlation: {{linCorr}}</h2>  
-    <h2 class="linDeter">Coefficient of determination: {{linDeter}}</h2>  
+    <h2 class="linDeter">Coefficient of determination: {{linDeter}}</h2>
+    <br>
+    <h2>Quadratic regression</h2>
+    <h2 class="QuadraticModel">{{QuadraticModel}}</h2>  
+    <h2 class="QuadraticCorr">Coefficient of correlation: {{QuadraticCorr}}</h2>  
+    <h2 class="QuadraticDeter">Coefficient of determination: {{QuadraticDeter}}</h2>
+    </div>
+
     </div>
 
     <h2 style="margin: 90px 0 30px 0;">Linear regression</h2>

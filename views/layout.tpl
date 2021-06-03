@@ -103,14 +103,14 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a href="/" class="navbar-brand">Team 6</a>
+                <a href="/" class="navbar-brand">Data approximation</a>
             </div>
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
                     <li><a href="¹">Task 1</a></li>
                     <li><a href="¹">Task 2</a></li>
                     <li><a href="¹">Task 3</a></li>
-                     <li><a href="/prim">Prim</a></li>
+                     <li><a href="/prim">Regression</a></li>
                     <li><a href="/authors">Authors</a></li>
                 </ul>
             </div>
