@@ -17,10 +17,9 @@
 </style>
 
 <h1 style="margin: 40px 0; padding-top: 40px; text-align: center;">Calculation of correlation and determination coefficients</h1>
-<p style="font-size: 16px; margin-bottom: 20px;">On this page, you can calculate the correlation coefficients for linear and quadratic regression and determination lines. Make a conclusion about which of the lines best approximates the original data.</p>
-<div class="junbotron">
+<p style="font-size: 16px; margin-bottom: 20px;">On this page, you can calculate the correlation coefficients for linear and quadratic regression and determination lines. Make a conclusion about which of the lines best approximates the original data.</p>\
 
-	
+<div class="junbotron">
 	<div style="background-color: #aaf0d1; border-radius: 15px; padding: 20px;"><p style="font-size: 14px;">Specify the amount of source data: </p>
     <form method='post'>
     %try:
@@ -33,15 +32,15 @@
     
     %try:
     <form method='post' style="margin: 60px 0;">
-    <p><input type="Number"  name="num" value={{rows}} placeholder="Number of graph vertices" min=1 max=99 hidden></input></p> 
+   <p><input type="Number"  name="num" value={{rows}} placeholder="" min=1 max=99 hidden></\input></p> 
         % include('make_table.tpl', title='make_table', rows=rows)
     <p> <input name="subm" type="submit"  class="button button" value="Calculate"></p>
-        
+    <h2 class="answer">{{answer}}</h2>   
     </form>
-        %except NameError:
+    %except NameError:
     %pass
     %finally:
-    <h2 class="answer">{{answer}}</h2>
+    <h2 class="answer">{{answer}}</h2>  
     </div>
 
     <h2 style="margin: 90px 0 30px 0;">Linear regression</h2>
