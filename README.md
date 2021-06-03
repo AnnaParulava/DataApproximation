@@ -17,10 +17,10 @@
       <li>
         <a href="#tasks">Tasks</a> 
         <ul>          
-          <li><a href="#task-1">Task 1</a></li>
-          <li><a href="#task-2">Task 2</a></li>  
-          <li><a href="#task-3">Task 3</a></li>  
-          <li><a href="#task-4">Task 4</a></li>  
+          <li><a href="#linear-regression-line">Linear regression line</a></li>
+          <li><a href="#quadratic-regression-line">Quadratic regression line</a></li>  
+          <li><a href="#correlation-and-determination">Correlation and determination</a></li>  
+          <li><a href="#average-level-of-given-series">Average level of given series</a></li>  
         </ul>
      </li>
     <li><a href="#development-stack">Development Stack</a></li>
@@ -54,7 +54,7 @@ For linear and quadratic regression lines, calculate the correlation and determi
 
 The third task was solved by Anna Parulava. You can find the solution for this task on Regression page.
 
-### Average level of a given series
+### Average level of given series
 Calculate the average level of the given series. Calculate absolute growth, growth rate and growth rate for all levels and the average values of these indicators. Determine the variability of the indicator and its stability. The calculation results are presented in the form of tables where necessary.
 
 The fourth task was solved by Maria Soproniuk. You can find the solution for this task on ?? page.
@@ -69,7 +69,7 @@ Css 3.0.0
 To get started install Visual Studio and start .sln file to use. To interact with the site, run the project on the web server.
 
 ## Usage
-You can use this project to get coefficients of linear regression line, quadratic regression line, correlation and determination. Moreover, you can calculate the average level of a given series.
+You can use this project to get coefficients of linear regression line, quadratic regression line, correlation and determination. Moreover, you can calculate the average level of given series.
 
 ## Latest Version
 The changes are reflected in the comments.
