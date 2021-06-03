@@ -14,9 +14,15 @@
 }
 }
 </style>
-
-<h1 style="margin: 40px 0; padding-top: 40px; text-align: center;">Calculation of correlation and determination coefficients</h1>
-<p style="font-size: 16px; margin-bottom: 20px;">On this page, you can approximate using the least squares method calculate the correlation coefficients for quadratic regression and determination lines. Make a conclusion about which of the lines best approximates the original data.</p>
+<div class="jumbotron" style="background-color: #aaf0d1; border-radius: 0 0 15px 15px;">
+    <h1 style="font-size: 35px; margin-bottom: 40px;">Statement of the task:</h1>
+    <p style="font-size: 16px;" class="lead">Using the least squares method, the function y = f (x), given in the table, is approximated by a polynomial of
+    the second degree y = P2 (x) = a0 + a1x + a2x2. Get the coefficients of the quadratic regression line a0, a1 and a2, the coefficient of determinism R2.
+</p>
+    <p><a href="https://en.wikipedia.org/wiki/Least_squares" class="button">Learn more about least squares method</a></p>
+</div>
+<h1 style="margin: 40px 0; padding-top: 40px; text-align: center;">Function aproskimation</h1>
+<p style="font-size: 16px; margin-bottom: 20px;">On this page, you can approximate function and get obtaining coefficients of linear regression and coefficient of determinism </p>
 <div class="junbotron">
 
 	
