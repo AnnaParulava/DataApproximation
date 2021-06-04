@@ -79,7 +79,7 @@ def regression_form():
 
             #запись результата в файл
             with open('results.txt', 'w') as file:
-                 file.write(' Leaner model :' +str(LeanerModel)+' coefficient of correlation: '+ str(r_lin) +' coefficient of determianation:'+ str(r2_lin))
+                 file.write(' Leaner model :' +LeanerModel+' coefficient of correlation: '+ str(r_lin) +' coefficient of determianation:'+ str(r2_lin)+ 'coefficient of correlation: '+ str(r_q)+'coefficient of determianation: '+ str(r2_q))
             file.close()
 
             #вывод ответа

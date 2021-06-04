@@ -1,27 +1,59 @@
-
-import scipy.stats
 import numpy as np
+from sklearn.linear_model import LinearRegression
 
 X_arr=[[5, 15, 25, 35, 45, 55],[5,10,25,55]]
 Y_arr=[[5, 20, 14, 32, 22, 38],[1,6,22,30]]
 
-leanerCorrelation=[0.84609,0.94443]
+leanerDetermianation=[0.71588,0.89194]
         
-x=[]
-y=[]
+x=np.array([])
+y=np.array([])
 
 for i in range(len(X_arr)):
     for j in X_arr:  
-        x.append(j)      
+        x=np.append(x,[j])      
         for j in Y_arr:      
-            y.append(j)           
-    r_lin, p = scipy.stats.pearsonr(x[i], y[i])
+            y=np.append(y,[j])  
+print(x[0])
+print(y)
+    #x[i] = np.array(x[i]).reshape((-1, 1))
+    #model = LinearRegression().fit(x[i], y[i])
+    #r2_lin = model.score(x[i], y[i])
+    #r2_lin=round(r_lin,5)
 
-    r_lin=round(r_lin,5)
+    #for i in range(len(leanerDetermianation)):
+    #    if r2_lin==leanerDetermianation[i]:
+    #        print(r2_lin)
 
-    for i in range(len(leanerCorrelation)):
-        if r_lin==leanerCorrelation[i]:
-            print(r_lin)
+
+
+
+
+
+
+#import scipy.stats
+#import numpy as np
+
+#X_arr=[[5, 15, 25, 35, 45, 55],[5,10,25,55]]
+#Y_arr=[[5, 20, 14, 32, 22, 38],[1,6,22,30]]
+
+#leanerCorrelation=[0.84609,0.94443]
+        
+#x=[]
+#y=[]
+
+#for i in range(len(X_arr)):
+#    for j in X_arr:  
+#        x.append(j)      
+#        for j in Y_arr:      
+#            y.append(j)           
+#    r_lin, p = scipy.stats.pearsonr(x[i], y[i])
+
+#    r_lin=round(r_lin,5)
+
+#    for i in range(len(leanerCorrelation)):
+#        if r_lin==leanerCorrelation[i]:
+#            print(r_lin)
 
 
 #print(x)

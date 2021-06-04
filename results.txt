@@ -1,2 +1,2 @@
- Leaner model :y =  
-1 x + 3 coefficient of correlation: 1.0 coefficient of determianation:1.0
+ Leaner model :y = 3.416 x + 1.865 coefficient of correlation: 0.82812 
+ coefficient of determianation:0.68578 coefficient of correlation: 1.0 coefficient of determianation: 1.0
