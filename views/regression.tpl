@@ -24,22 +24,24 @@
     <p style="font-size: 14px;">Specify the amount of source data: </p>
     <form method='post'>
     %try:
-		<p><input type="Number"  name="num" value={{rows}} placeholder="" min=2 max=99 ></input></p> 
+		<p><input type="Number"  name="num" value={{rows}} placeholder={{row}} min=2 max=99 ></input></p> 
         %except NameError:
-        <p><input type="Number"  name="num" placeholder="" min=2 max=99 style="border-radius: 5px;"></input></p> 
+        <p><input type="Number"  name="num" placeholder={{row}} min=2 max=99 style="border-radius: 5px;"></input></p> 
         %finally:
         <p> <input name="subm" type="submit"  class="button button" value="Ok"></p>
     </form>
     
     %try:
     <form method='post' style="margin: 60px 0;">
-   <p><input type="Number" step="0.01" name="num" value={{rows}} placeholder="" min=1.0 max=1000.0 hidden></input></p> 
+    <p style="font-size: 14px;">Enter values from 1 to 1000: </p>
+   <p><input type="Number" step="0.01" name="num" value={{rows}} placeholder="" min=1 max=1000 hidden></input></p> 
         % include('make_table.tpl', title='make_table', rows=rows)
     <p> <input name="subm" type="submit"  class="button button" value="Calculate"></p>  
     </form>      
     %except NameError:
     %pass
     %finally:
+    <br/>
     % include('fill_table.tpl', title='fill_table',row=row, x=x,y=y)
     </div><div style="margin-left: 100px;"><div style="display: grid; grid-template-columns: 1fr 1fr; font-size: 14px; "><p><b>Linear regression</b></p>
     <p class="LeanerModel"><b>{{LeanerModel}}</b></p>  
