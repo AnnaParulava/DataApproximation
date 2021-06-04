@@ -17,7 +17,7 @@ import statistics
 def prim_form():
     try:
         name = request.forms.get('subm')
-        if(name != "Ok"):
+        if(name == "Calculate"):
             rows=int(request.forms.get('num'))
             x=[]
             y=[]
@@ -62,14 +62,25 @@ def prim_form():
             r_q=pow(r2_q,0.5)
             print("coefficient of correlation: ", r_q)
 
-            ша 
 
-        #вывод ответа
+            ###### Вывод ##########
+            if(r2_lin>r2_q):
+                conclusion='Since the R² of the linear regression is greater than the R² of the quadratic one, the '+LeanerModel+' line approximates the original data better.'
+
+            if(r2_q>r2_lin):
+                conclusion='Since the R² of the quadratic regression is greater than the R² of the linear one, the '+QuadraticModel+' line approximates the original data better.'
+
+            if(r2_q==r2_lin):
+                conclusion='The confidence value R² is the same for both lines.'
+
+        
+            #вывод ответа
+            return template('prim.tpl', title='Regression', year=2021, LeanerModel=LeanerModel, linCorr=r_lin, linDeter=r2_lin, QuadraticModel=QuadraticModel, QuadraticCorr=r_q, QuadraticDeter=r2_q, conclusion=conclusion, row=rows, x=x,y=y)
         else:
-             return template('prim.tpl', title='Regression', year=2021, LeanerModel=LeanerModel, linCorr=r_lin, linDeter=r2_lin, QuadraticModel=QuadraticModel, QuadraticCorr=r_q, QuadraticDeter=r2_q, row=rows, x=x,y=y)
-         
+            return template('prim.tpl', rows=int(request.forms.get('num')), title='Prim', message='Prim`s algorithm', year=datetime.now().year, LeanerModel='', linCorr="", linDeter="", QuadraticModel="", QuadraticCorr="", QuadraticDeter="",conclusion="",row=0, x=[],y=[]) 
+
     except Exception:
-        return template('prim', rows=2, title='Prim', message='Prim`s algorithm', year=datetime.now().year, LeanerModel='', linCorr="", linDeter="", QuadraticModel="", QuadraticCorr="", QuadraticDeter="",row=0, x=[],y=[]) 
+        return template('prim.tpl', title='Prim', message='Prim`s algorithm', year=datetime.now().year, LeanerModel='', linCorr="", linDeter="", QuadraticModel="", QuadraticCorr="", QuadraticDeter="",conclusion="",row=0, x=[],y=[]) 
 
     finally:
         pass

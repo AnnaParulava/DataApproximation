@@ -27,6 +27,7 @@ def prim():
         QuadraticModel="",
         QuadraticCorr="", 
         QuadraticDeter="",
+        conclusion="",
         row=0,
         x=[],
         y=[],

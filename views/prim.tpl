@@ -1,4 +1,4 @@
-% rebase('layout.tpl', title='Regression', year=year, LeanerModel=LeanerModel, linCorr=linCorr, linDeter=linDeter, QuadraticModel=QuadraticModel, QuadraticCorr=QuadraticCorr, QuadraticDeter=QuadraticDeter, row=row, x=x,y=y)
+% rebase('layout.tpl', title='Regression', year=year, LeanerModel=LeanerModel, linCorr=linCorr, linDeter=linDeter, QuadraticModel=QuadraticModel, QuadraticCorr=QuadraticCorr, QuadraticDeter=QuadraticDeter,conclusion=conclusion, row=row, x=x,y=y)
 
 <style>
    
@@ -50,6 +50,9 @@
     <h2 class="QuadraticModel">{{QuadraticModel}}</h2>  
     <h2 class="QuadraticCorr">Coefficient of correlation: {{QuadraticCorr}}</h2>  
     <h2 class="QuadraticDeter">Coefficient of determination: {{QuadraticDeter}}</h2>
+    <br>
+    <h2>Conclusion</h2>
+    <h2 class="conclusion">{{conclusion}}</h2>  
     </div>
 
     </div>
