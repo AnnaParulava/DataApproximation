@@ -14,13 +14,13 @@ class Test_test_leanerCorr(unittest.TestCase):
         x=[]
         y=[]
 
-        for X_arr in X_arr:
-            for Y_arr in Y_arr:
-                x.append(X_arr)
-                y.append(Y_arr)         
+        for i in X_arr:
+            for j in Y_arr:
+                x.append(i)
+                y.append(j)         
                 r_lin, p = scipy.stats.pearsonr(x, y)
-                for leanerCorrelation in leanerCorrelation:
-                    if r_lin==leanerCorrelation:
+                for i in leanerCorrelation:
+                    if r_lin==leanerCorrelationх[i]:
                         correct = True
 
         self.assertTrue(correct)

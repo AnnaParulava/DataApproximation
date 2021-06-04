@@ -19,8 +19,8 @@
 <h1 style="margin: 40px 0; padding-top: 40px; text-align: center;">Calculation of correlation and determination coefficients</h1>
 <p style="font-size: 16px; margin-bottom: 20px;">On this page, you can calculate the correlation coefficients for linear and quadratic regression and determination lines. Make a conclusion about which of the lines best approximates the original data.</p>
 
-<div class="junbotron" style="display: grid; grid-template-columns: 3fr 1fr;">
-	<div style="background-color: #aaf0d1; border-radius: 15px; padding: 20px;">
+<div class="junbotron" >
+	<div style="background-color: #aaf0d1; border-radius: 15px; padding: 20px; display: grid; grid-template-columns: 1fr 3fr;"><div>
     <p style="font-size: 14px;">Specify the amount of source data: </p>
     <form method='post'>
     %try:
@@ -41,20 +41,21 @@
     %pass
     %finally:
     % include('fill_table.tpl', title='fill_table',row=row, x=x,y=y)
-    <h2>Linear regression</h2>
-    <h2 class="LeanerModel">{{LeanerModel}}</h2>  
-    <h2 class="linCorr">Coefficient of correlation: {{linCorr}}</h2>  
-    <h2 class="linDeter">Coefficient of determination: {{linDeter}}</h2>
-    <br>
-    <h2>Quadratic regression</h2>
-    <h2 class="QuadraticModel">{{QuadraticModel}}</h2>  
-    <h2 class="QuadraticCorr">Coefficient of correlation: {{QuadraticCorr}}</h2>  
-    <h2 class="QuadraticDeter">Coefficient of determination: {{QuadraticDeter}}</h2>
-    <br>
-    <h2>Conclusion</h2>
-    <h2 class="conclusion">{{conclusion}}</h2>  
+    </div><div style="margin-left: 100px;"><div style="display: grid; grid-template-columns: 1fr 1fr; font-size: 14px; "><p><b>Linear regression</b></p>
+    <p class="LeanerModel"><b>{{LeanerModel}}</b></p>  
+    <p class="linCorr">Coefficient of correlation: {{linCorr}}</p>  
+    <p class="linDeter">Coefficient of determination: {{linDeter}}</p>
+    
+    <p><b>Quadratic regression</b></p>
+    <p class="QuadraticModel"><b>{{QuadraticModel}}</b></p>  
+    <p class="QuadraticCorr">Coefficient of correlation: {{QuadraticCorr}}</p>  
+    <p class="QuadraticDeter">Coefficient of determination: {{QuadraticDeter}}</p>
+    </div></br></br>
+    <p><b>Conclusion</b></p>
+    <p class="conclusion">{{conclusion}}</p>  
     </div>
 
+    </div>
     </div>
 
     <h2 style="margin: 90px 0 30px 0;">Linear regression</h2>

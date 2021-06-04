@@ -1,24 +1,31 @@
 
 import scipy.stats
+import numpy as np
 
-X_arr=[5, 15, 25, 35, 45, 55]
-Y_arr=[5, 20, 14, 32, 22, 38]
+X_arr=[[5, 15, 25, 35, 45, 55],[5,10,25,55]]
+Y_arr=[[5, 20, 14, 32, 22, 38],[1,6,22,30]]
 
 leanerCorrelation=[0.84609,0.94443]
         
 x=[]
 y=[]
 
-for X_arr,Y_arr in X_arr,Y_arr:
-     x.append(X_arr)  
-     y.append(Y_arr)   
-     print(x)
-     print(y)
-         #r_lin, p = scipy.stats.pearsonr(x, y)
-         #print(r_lin)
+for i in range(len(X_arr)):
+    for j in X_arr:  
+        x.append(j)      
+        for j in Y_arr:      
+            y.append(j)           
+    r_lin, p = scipy.stats.pearsonr(x[i], y[i])
+
+    r_lin=round(r_lin,5)
+
+    for i in range(len(leanerCorrelation)):
+        if r_lin==leanerCorrelation[i]:
+            print(r_lin)
 
 
-
+#print(x)
+#print(y)
 
 
 
