@@ -4,7 +4,7 @@ Routes and views for the bottle application.
 
 from bottle import route, view
 from datetime import datetime
-import prim_form
+import regression_form
 
 @route('/')
 @route('/home')
@@ -15,12 +15,12 @@ def home():
         year=datetime.now().year
     )
 
-@route('/prim')
-@view('prim')
-def prim():
+@route('/regression')
+@view('regression')
+def regression():
     """Renders the contact page."""
     return dict(
-        title='Prim',
+        title='Regression',
         LeanerModel='',
         linCorr="",
         linDeter="",
@@ -31,7 +31,7 @@ def prim():
         row=0,
         x=[],
         y=[],
-        message='Prim`s algorithm',
+        message='Regression`s algorithm',
         year=datetime.now().year
     )
 

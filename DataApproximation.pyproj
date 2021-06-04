@@ -30,11 +30,17 @@
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="app.py" />
-    <Compile Include="prim_form.py">
+    <Compile Include="DataForTests.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="regression_form.py">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="PythonApplication1\PythonApplication1.py" />
     <Compile Include="routes.py" />
+    <Compile Include="test_leanerCorr.py">
+      <SubType>Code</SubType>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <Folder Include="PythonApplication1\" />
@@ -53,6 +59,7 @@
     <Content Include="PythonApplication1\PythonApplication1.pyproj" />
     <Content Include="PythonApplication1\PythonApplication1.sln" />
     <Content Include="requirements.txt" />
+    <Content Include="results.txt" />
     <Content Include="res\lin.png" />
     <Content Include="static\content\bootstrap.css" />
     <Content Include="static\content\bootstrap.min.css" />
@@ -79,7 +86,7 @@
     <Content Include="views\fill_table.tpl" />
     <Content Include="views\make_table.tpl" />
     <Content Include="views\task2.tpl" />
-    <Content Include="views\prim.tpl" />
+    <Content Include="views\regression.tpl" />
     <Content Include="views\about.tpl" />
     <Content Include="views\authors.tpl" />
     <Content Include="views\index.tpl" />

@@ -110,7 +110,7 @@
                     <li><a href="¹">Task 1</a></li>
                     <li><a href="¹">Task 2</a></li>
                     <li><a href="¹">Task 3</a></li>
-                     <li><a href="/prim">Regression</a></li>
+                     <li><a href="/regression">Regression</a></li>
                     <li><a href="/authors">Authors</a></li>
                 </ul>
             </div>

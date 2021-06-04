@@ -13,8 +13,8 @@ from sklearn.metrics import mean_squared_error, r2_score
 import scipy.stats
 import statistics
 
-@post('/prim', method='post')
-def prim_form():
+@post('/regression', method='post')
+def regression_form():
     try:
         name = request.forms.get('subm')
         if(name == "Calculate"):
@@ -37,12 +37,14 @@ def prim_form():
 
             #Вычисление коэффициента корреляции
             r_lin, p = scipy.stats.pearsonr(x, y)
+            r_lin=round(r_lin,5)
             print("coefficient of correlation: ", r_lin)
 
             #Вычисление коэффициента детерминации 
             x_resh = np.array(x).reshape((-1, 1))
             model = LinearRegression().fit(x_resh, y)
             r2_lin = model.score(x_resh, y)
+            r2_lin=round(r2_lin,5)
             print('coefficient of determination:', r2_lin)
 
 
@@ -56,10 +58,12 @@ def prim_form():
             model = np.poly1d(np.polyfit(x, y, 2))
             print(model)                                             #Вывод уравнения регрессии
             r2_q= r2_score(y, model(x))
+            r2_q=round(r2_q,5)
             print('coefficient of determination:', r2_q)            #Вывод коэффициента детерминации
 
             #Вычисление коэффициента корреляции
             r_q=pow(r2_q,0.5)
+            r_q=round(r_q,5)
             print("coefficient of correlation: ", r_q)
 
 
@@ -73,14 +77,19 @@ def prim_form():
             if(r2_q==r2_lin):
                 conclusion='The confidence value R² is the same for both lines.'
 
-        
+            #запись результата в файл
+            with open('results.txt', 'w') as file:
+                 file.write(' Leaner model :' +str(LeanerModel)+' coefficient of correlation: '+ str(r_lin) +' coefficient of determianation:'+ str(r2_lin))
+            file.close()
+
             #вывод ответа
-            return template('prim.tpl', title='Regression', year=2021, LeanerModel=LeanerModel, linCorr=r_lin, linDeter=r2_lin, QuadraticModel=QuadraticModel, QuadraticCorr=r_q, QuadraticDeter=r2_q, conclusion=conclusion, row=rows, x=x,y=y)
+            return template('regression.tpl', title='Regression', year=2021, LeanerModel=LeanerModel, linCorr=r_lin, linDeter=r2_lin, QuadraticModel=QuadraticModel, QuadraticCorr=r_q, QuadraticDeter=r2_q, conclusion=conclusion, row=rows, x=x,y=y)
+
         else:
-            return template('prim.tpl', rows=int(request.forms.get('num')), title='Prim', message='Prim`s algorithm', year=datetime.now().year, LeanerModel='', linCorr="", linDeter="", QuadraticModel="", QuadraticCorr="", QuadraticDeter="",conclusion="",row=0, x=[],y=[]) 
+            return template('regression.tpl', rows=int(request.forms.get('num')), title='Regression', message='Regression`s algorithm', year=datetime.now().year, LeanerModel='', linCorr="", linDeter="", QuadraticModel="", QuadraticCorr="", QuadraticDeter="",conclusion="",row=0, x=[],y=[]) 
 
     except Exception:
-        return template('prim.tpl', title='Prim', message='Prim`s algorithm', year=datetime.now().year, LeanerModel='', linCorr="", linDeter="", QuadraticModel="", QuadraticCorr="", QuadraticDeter="",conclusion="",row=0, x=[],y=[]) 
+        return template('regression.tpl', title='Regression', message='Regression`s algorithm', year=datetime.now().year, LeanerModel='', linCorr="", linDeter="", QuadraticModel="", QuadraticCorr="", QuadraticDeter="",conclusion="",row=0, x=[],y=[]) 
 
     finally:
         pass
