@@ -43,9 +43,8 @@
     %finally:
     <br/>
     % include('fill_table.tpl', title='fill_table',row=row, x=x,y=y)
-    </div><div style="margin-left: 100px;"><div style="display: grid; grid-template-columns: 1fr 1fr; font-size: 14px; "><p><b>Coefficients of the quadratic regression line:</b></p>
-    <p class="coefficients"><b>{{coefficients}}</b></p>
-    <p class="determinism">Determinism coefficient R2: {{determinism}}</p>
+    </div><div style="margin-left: 100px;"><div style="display: grid; grid-template-columns: 1fr 6fr; font-size: 24px; "><p></p>
+    <p class="coefficients"><b>Coefficients of the quadratic regression line:<br>{{coefficients}}<br>Determinism coefficient R2: <br>{{determinism}}</b></p>
     </div></br></br>
     </div>
 

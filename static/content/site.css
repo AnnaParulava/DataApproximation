@@ -52,3 +52,17 @@ input[type="checkbox"].input-validation-error {
     font-size: 14px;
     border-radius: 16px;
 }
+
+tbody {
+    display: flex;
+}
+
+tr {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+}
+
+td {
+    border: 1px solid black;
+}
