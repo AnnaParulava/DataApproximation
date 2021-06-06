@@ -6,12 +6,12 @@ import os
 from datetime import datetime
 import numpy as np
 from sklearn.linear_model import LinearRegression
+from sklearn.preprocessing import PolynomialFeatures
 import matplotlib.pyplot as plt
 import scipy.stats
-import operator
-import math
 from sklearn.metrics import mean_squared_error, r2_score
-from scipy.optimize import curve_fit
+import scipy.stats
+import statistics
 
 @post('/prim', method='post')
 def prim_form():
@@ -64,18 +64,17 @@ def prim_form():
             print(y)
 
             arr = np.polyfit(x, y, 2)
-            model='('+str(round(arr[0],5))+')x² + ('+str(round(arr[1],5))+')x + ('+str(round(arr[2],5))+')'
+            coef='('+str(round(arr[0],5))+')x² + ('+str(round(arr[1],5))+')x + ('+str(round(arr[2],5))+')'
             #Вычисление коэффициента детерминации 1 способ
             model = np.poly1d(np.polyfit(x, y, 2))
             print(model) #Вывод уравнения регрессии
             r2_sq= r2_score(y, model(x))
             print('coefficient of determination:', r2_sq) #Вывод коэффициента детерминации
-            
            
-              #запись результата в файл
-           with open('results_task2.txt', 'w') as file:
-                 file.write('>Coefficients of the quadratic regression line: '+ '('+str(round(arr[0],5))+')x² + ('+str(round(arr[1],5))+')x + ('+str(round(arr[2],5))+')' +' Determinism coefficient R2:'+ str(r2_sq))
-           file.close()
+            #запись результата в файл
+            with open('results_task2.txt', 'a', encoding='utf-8') as file:
+                file.write('Coefficients of the quadratic regression line: '+ coef+'Determinism coefficient R2: '+ str(r2_sq)+"\n")
+            file.close()
 
             return template('task2.tpl', title='Aproximation', year=2021, coefficients='('+str(round(arr[0],5))+')x² + ('+str(round(arr[1],5))+')x + ('+str(round(arr[2],5))+')', determinism = str(r2_sq),  row=rows, x=x,y=y)
         else:

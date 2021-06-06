@@ -1,0 +1,2 @@
+Coefficients of the quadratic regression line: (0.85714)x² + (1.42857)x + (1.71429)Determinism coefficient R2: 1.0
+Coefficients of the quadratic regression line: (0.75714)x² + (0.72857)x + (-0.48571)Determinism coefficient R2: 1.0
