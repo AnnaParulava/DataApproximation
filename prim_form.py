@@ -11,8 +11,7 @@ import scipy.stats
 import operator
 import math
 from sklearn.metrics import mean_squared_error, r2_score
-
-
+from scipy.optimize import curve_fit
 
 @post('/prim', method='post')
 def prim_form():
@@ -51,52 +50,40 @@ def prim_form():
 
 @post('/task2', method='post')
 def prim_form():
-    
-    name = request.forms.get('subm')
-    if(name != "Ok"):
-        rows=int(request.forms.get('num'))
-        x=[]
-        y=[]
-        #если ячейка пустая, то 0
-        for i in range(rows):
+    try:
+        name = request.forms.get('subm')
+        if(name == "Calculate"):
+            rows=int(request.forms.get('num'))
+            x=[]
+            y=[]
+            for i in range(rows):
+                x.append(float(request.forms.get('fieldX' +str(i))))
+                y.append(float(request.forms.get('fieldY' + str(i))))
 
-            #if((request.forms.get('fieldX' + str(i))&&(request.forms.get('fieldY' + str(i)))))==""):
-                #return template('task2', rows=int(request.forms.get('num')),title='task2', message='Prim`s algorithm', year=datetime.now().year, answer="Fill all boxes")
-           # else:
-            x.append(int(request.forms.get('fieldX' + str(i))))
-            y.append(int(request.forms.get('fieldY' + str(i))))
+            print(x)
+            print(y)
 
-        print(x)
-        print(y)
-        #sq_x = 0 #сумма квадратов иксов
-        #third_x = 0 #сумма кубов иксов
-        #fourth_x = 0 #сумма иксов в четвертой степени
-        #sum_x = 0 #сумма иксов
-        #sum_y = 0 #сумма игриков
-        #sum_xy = 0 #сумма произведения x на y
-        #sum_x2y = 0 #сумма произведения x^2 на y
-        #n=len(x)
-        #for i in range(len(x)):
-        #    sq_x+=(1/x[i])*(1/x[i])
-        #    third_x+=(1/x[i])**3
-        #    fourth_x+=(1/x[i])**4
-        #    sum_x+=(1/x[i])
-        #    sum_y+=y[i]
-        #    sum_xy+=y[i]*(1/x[i])
-        #    sum_xy+=y[i]*(1/x[i])
-        #print(sum_x,', ',sq_x,', ',third_x,', ',fourth_x)
-        #A=np.array([[sq_x, third_x, fourth_x],[sum_x, sq_x, third_x],[n, sum_x, sq_x]])
-        #B = np.array([ sum_x2y, sum_xy, sum_y])
-        #np.linalg.solve(A, B)    
-        arr = np.polyfit(x, y, 2)
-        model='('+str(round(arr[0],5))+')x² + ('+str(round(arr[1],5))+')x + ('+str(round(arr[2],5))+')'
-        #Вычисление коэффициента детерминации 1 способ
-        model = np.poly1d(np.polyfit(x, y, 2))
-        print(model) #Вывод уравнения регрессии
-        r2_sq= r2_score(y, model(x))
-        print('coefficient of determination:', r2_sq) #Вывод коэффициента детерминации
+            arr = np.polyfit(x, y, 2)
+            model='('+str(round(arr[0],5))+')x² + ('+str(round(arr[1],5))+')x + ('+str(round(arr[2],5))+')'
+            #Вычисление коэффициента детерминации 1 способ
+            model = np.poly1d(np.polyfit(x, y, 2))
+            print(model) #Вывод уравнения регрессии
+            r2_sq= r2_score(y, model(x))
+            print('coefficient of determination:', r2_sq) #Вывод коэффициента детерминации
+            beta = (0.25, 0.75, 0.5)
+            def f(x, b0, b1, b2):
+                return b0 + b1 * np.exp(-b2 * x**2)
+           
+              #запись результата в файл
+           # with open('results.txt', 'w') as file:
+           #      file.write(' Leaner model :' +LeanerModel+' coefficient of correlation: '+ str(r_lin) +' coefficient of determianation:'+ str(r2_lin)+ 'coefficient of correlation: '+ str(r_q)+'coefficient of determianation: '+ str(r2_q))
+            #file.close()
+
+            return template('task2.tpl', title='Aproximation', year=2021, coefficients='('+str(round(arr[0],5))+')x² + ('+str(round(arr[1],5))+')x + ('+str(round(arr[2],5))+')', determinism = str(r2_sq),  row=rows, x=x,y=y)
+        else:
+            return template('task2.tpl', rows=int(request.forms.get('num')),title='task2', message='', year=datetime.now().year, coefficients="", determinism="", row=0, x=[],y=[] )
+    except Exception:
+        return template('task2.tpl', title='Aproximation', year=2021, coefficients='Введите значения', determinism='', row=0, x=[],y=[] )
         
-
-        return template('task2.tpl', title='Aproximation', year=2021, answer='Коэфиценты квадратичной линии регрессии: \n ('+str(round(arr[0],5))+')x² + ('+str(round(arr[1],5))+')x + ('+str(round(arr[2],5))+') Коэффициент детерминированности R2: '+ str(r2_sq))
-    else:
-        return template('task2', rows=int(request.forms.get('num')),title='task2', message='Prim`s algorithm', year=datetime.now().year, answer="")
+    finally:
+        pass

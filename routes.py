@@ -32,8 +32,12 @@ def task2():
     """Renders the contact page."""
     return dict(
         title='Task 2',
-        answer="",
+        coefficients='',
         message='',
+        determinism='',
+        row=0,
+        x=[],
+        y=[],
         year=datetime.now().year
     )
 

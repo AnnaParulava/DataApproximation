@@ -1,6 +1,7 @@
-% rebase('layout.tpl', title=title, year=year, answer=answer)
+% rebase('layout.tpl', title=title, year=year, coefficients=coefficients, determinism=determinism, row=row, x=x,y=y)
 
 <style>
+   
    .button {
   background-color: #242425;
   border: none;
@@ -14,39 +15,41 @@
 }
 }
 </style>
-<div class="jumbotron" style="background-color: #aaf0d1; border-radius: 0 0 15px 15px;">
-    <h1 style="font-size: 35px; margin-bottom: 40px;">Statement of the task:</h1>
-    <p style="font-size: 16px;" class="lead">Using the least squares method, the function y = f (x), given in the table, is approximated by a polynomial of
-    the second degree y = P2 (x) = a0 + a1x + a2x2. Get the coefficients of the quadratic regression line a0, a1 and a2, the coefficient of determinism R2.
-</p>
-    <p><a href="https://en.wikipedia.org/wiki/Least_squares" class="button">Learn more about least squares method</a></p>
-</div>
-<h1 style="margin: 40px 0; padding-top: 40px; text-align: center;">Function aproskimation</h1>
-<p style="font-size: 16px; margin-bottom: 20px;">On this page, you can approximate function and get obtaining coefficients of linear regression and coefficient of determinism </p>
-<div class="junbotron">
 
-	
-	<div style="background-color: #aaf0d1; border-radius: 15px; padding: 20px;"><p style="font-size: 14px;">Specify the amount of source data: </p>
+<h1 style="margin: 40px 0; padding-top: 40px; text-align: center;">Calculation of correlation and determination coefficients</h1>
+<p style="font-size: 16px; margin-bottom: 20px;">On this page, you can calculate the correlation coefficients for linear and quadratic regression and determination lines. Make a conclusion about which of the lines best approximates the original data.</p>
+
+<div class="junbotron" >
+	<div style="background-color: #aaf0d1; border-radius: 15px; padding: 20px; display: grid; grid-template-columns: 1fr 3fr;"><div>
+    <p style="font-size: 14px;">Specify the amount of source data: </p>
     <form method='post'>
     %try:
-		<p><input type="Number"  name="num" value={{rows}} placeholder="" min=1 max=99 ></input></p> 
+		<p><input type="Number"  name="num" value={{rows}} placeholder={{row}} min=2 max=99 ></input></p> 
         %except NameError:
-        <p><input type="Number"  name="num" placeholder="" min=1 max=99 style="border-radius: 5px;"></input></p> 
+        <p><input type="Number"  name="num" placeholder={{row}} min=2 max=99 style="border-radius: 5px;"></input></p> 
         %finally:
         <p> <input name="subm" type="submit"  class="button button" value="Ok"></p>
     </form>
     
     %try:
     <form method='post' style="margin: 60px 0;">
-    <p><input type="Number"  name="num" value={{rows}} placeholder="Number of graph vertices" min=1 max=99 hidden></input></p> 
+    <p style="font-size: 14px;">Enter values from 1 to 1000: </p>
+   <p><input type="Number" step="0.01" name="num" value={{rows}} placeholder="" min=1 max=1000 hidden></input></p> 
         % include('make_table.tpl', title='make_table', rows=rows)
-    <p> <input name="subm" type="submit"  class="button button" value="Calculate"></p>
-        
-    </form>
-        %except NameError:
+    <p> <input name="subm" type="submit"  class="button button" value="Calculate"></p>  
+    </form>      
+    %except NameError:
     %pass
     %finally:
-    <h2 class="answer">{{answer}}</h2>
+    <br/>
+    % include('fill_table.tpl', title='fill_table',row=row, x=x,y=y)
+    </div><div style="margin-left: 100px;"><div style="display: grid; grid-template-columns: 1fr 1fr; font-size: 14px; "><p><b>Coefficients of the quadratic regression line:</b></p>
+    <p class="coefficients"><b>{{coefficients}}</b></p>
+    <p class="determinism">Determinism coefficient R2: {{determinism}}</p>
+    </div></br></br>
+    </div>
+
+    </div>
     </div>
 
     <h2 style="margin: 90px 0 30px 0;">Function approximation</h2>
