@@ -70,14 +70,12 @@ def prim_form():
             print(model) #Вывод уравнения регрессии
             r2_sq= r2_score(y, model(x))
             print('coefficient of determination:', r2_sq) #Вывод коэффициента детерминации
-            beta = (0.25, 0.75, 0.5)
-            def f(x, b0, b1, b2):
-                return b0 + b1 * np.exp(-b2 * x**2)
+            
            
               #запись результата в файл
-           # with open('results.txt', 'w') as file:
-           #      file.write(' Leaner model :' +LeanerModel+' coefficient of correlation: '+ str(r_lin) +' coefficient of determianation:'+ str(r2_lin)+ 'coefficient of correlation: '+ str(r_q)+'coefficient of determianation: '+ str(r2_q))
-            #file.close()
+           with open('results_task2.txt', 'w') as file:
+                 file.write('>Coefficients of the quadratic regression line: '+ '('+str(round(arr[0],5))+')x² + ('+str(round(arr[1],5))+')x + ('+str(round(arr[2],5))+')' +' Determinism coefficient R2:'+ str(r2_sq))
+           file.close()
 
             return template('task2.tpl', title='Aproximation', year=2021, coefficients='('+str(round(arr[0],5))+')x² + ('+str(round(arr[1],5))+')x + ('+str(round(arr[2],5))+')', determinism = str(r2_sq),  row=rows, x=x,y=y)
         else:

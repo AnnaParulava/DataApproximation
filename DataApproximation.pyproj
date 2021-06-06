@@ -19,6 +19,9 @@
     <Name>DataApproximation</Name>
     <RootNamespace>DataApproximation</RootNamespace>
     <InterpreterId>MSBuild|envs|$(MSBuildProjectFullPath)</InterpreterId>
+    <TestFramework>unittest</TestFramework>
+    <UnitTestPattern>test*.py</UnitTestPattern>
+    <UnitTestRootDirectory>.</UnitTestRootDirectory>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)' == 'Debug' ">
     <DebugSymbols>true</DebugSymbols>
@@ -35,6 +38,18 @@
     </Compile>
     <Compile Include="PythonApplication1\PythonApplication1.py" />
     <Compile Include="routes.py" />
+    <Compile Include="test_coefficientalsFalse.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="test_coefficientTrue.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="test_determinationFalse.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="test_determinationTrue.py">
+      <SubType>Code</SubType>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <Folder Include="PythonApplication1\" />
